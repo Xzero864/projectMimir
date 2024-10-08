@@ -30,8 +30,11 @@ def mase(arr):
 
     return pd.DataFrame(res)
 
-def preprocess(filename):
-    frame = pd.read_csv('data/' + filename, index_col=0)
+def preprocess(filename,isframe = False):
+    if not isframe:
+        frame = pd.read_csv('data/' + filename, index_col=0)
+    else:
+        frame = filename
     print(frame)
     cleaned_frame = frame.loc[['Actual','Forecast']]
     print(cleaned_frame.loc['Actual'])
