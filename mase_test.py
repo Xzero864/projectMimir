@@ -41,8 +41,8 @@ def preprocess(filename,isframe = False):
     actual, forecast = frame.loc['Actual'], frame.loc['Forecast']
     print(actual[0], forecast[0])
     try:
-        actual = (actual.str.rstrip('%').astype('float') / 100.0)
-        forecast = (forecast.str.rstrip('%').astype('float') / 100.0)
+        actual = (actual.str.rstrip('%').astype('float'))
+        forecast = (forecast.str.rstrip('%').astype('float'))
     except Exception as e:
         actual = actual
         forecast = forecast
