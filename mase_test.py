@@ -25,7 +25,7 @@ def mase(arr):
         res['act'].append(act)
         res['pred'].append(prediction)
         print(f'{running_total} {index}')
-        res['mase'].append(err / (running_total / index)) if index != 0 else res['err'].append(err)
+        res['mase'].append(err / (running_total / index)) if index != 0 else res['mase'].append(err)
         index += 1
 
     return pd.DataFrame(res)
