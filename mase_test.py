@@ -4,7 +4,7 @@ import pandas as pd
 def mase(arr):
     acts = arr[0]
     predictions = arr[1]
-    res = {'act':[], 'pred':[], 'err':[]}
+    res = {'act':[], 'pred':[], 'mase':[]}
     running_total = 1
     index = 0
     last_act = None
@@ -15,7 +15,7 @@ def mase(arr):
             running_total += abs(act - last_act)
             res['act'].append(act)
             res['pred'].append(None)
-            res['err'].append(None)
+            res['mase'].append(None)
             index += 1
             continue
         err = abs(act - prediction)
@@ -25,7 +25,7 @@ def mase(arr):
         res['act'].append(act)
         res['pred'].append(prediction)
         print(f'{running_total} {index}')
-        res['err'].append(err / (running_total / index)) if index != 0 else res['err'].append(err)
+        res['mase'].append(err / (running_total / index)) if index != 0 else res['err'].append(err)
         index += 1
 
     return pd.DataFrame(res)
