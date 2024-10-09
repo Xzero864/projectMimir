@@ -44,8 +44,8 @@ def preprocess(filename,isframe = False):
         actual = (actual.str.rstrip('%').astype('float'))
         forecast = (forecast.str.rstrip('%').astype('float'))
     except Exception as e:
-        actual = actual
-        forecast = forecast
+        actual = actual.astype('float')
+        forecast = forecast.astype('float')
     return actual,forecast
 
 if __name__ == "__main__":
